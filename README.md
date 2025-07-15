@@ -1,7 +1,6 @@
 # 🎬 Textulayze
 
-> **Intelligent Video Subtitling Platform**  
-> Empowering creators worldwide with AI-powered subtitle generation and customization
+> **Automatic Video Subtitles**
 
 ---
 
