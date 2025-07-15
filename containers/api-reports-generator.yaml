@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-reports-generator
+  labels:
+    app: api-reports-generator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-reports-generator
+  template:
+    metadata:
+      labels:
+        app: api-reports-generator
+    spec:
+      containers:
+        - name: api-reports-generator
+          image: hendrikutt/api:latest
+          imagePullPolicy: Always
+          env:
+            - name: SERVICE
+              value: api-reports-generator
+
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_HOST
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_PORT
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_DATABASE
+
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+
+      imagePullSecrets:
+        - name: myregistrysecret

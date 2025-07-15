@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+    font-family: 'The Bold Font';
+    src: url('./assets/fonts/theboldfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MrBeast';
+    src: url('./assets/fonts/komikax.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GT Walsheim';
+    src: url('./assets/fonts/GT-Walsheim-Pro-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cabin';
+    src: url('./assets/fonts/Cabin-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Josefin Sans';
+    src: url('./assets/fonts/JosefinSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Opinion';
+    src: url('./assets/fonts/Opinion.otf') format('truetype');
+}

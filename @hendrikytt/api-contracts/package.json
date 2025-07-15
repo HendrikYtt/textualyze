@@ -1,0 +1,11 @@
+{
+  "name": "@hendrikytt/api-contracts",
+  "version": "1.2.74",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@hendrikytt/api-contracts": "^1.1.56"
+  },
+  "devDependencies": {}
+}

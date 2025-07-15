@@ -1,0 +1,169 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  labels:
+    app: api
+spec:
+#  replicas = how many concurrent uploads/transcribe requests
+#  and also how many concurrent renders (keep in mind that Remotion can use 200 workers at the same time and also check AWS lambda limit)
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: hendrikutt/api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+            - name: SOCKET_IO_NAMESPACE
+              value: "/api"
+            - name: FRONTEND_URL
+              value: "https://textualyze.com"
+            - name: REDIS_HOST
+              value: "redis-service"
+            - name: REDIS_PORT
+              value: "6379"
+            - name: SERVICE
+              value: api
+
+            - name: REMOTION_AWS_ACCESS_KEY_ID
+              value: <YOUR_KEY>
+            - name: REMOTION_AWS_SECRET_ACCESS_KEY
+              value: <YOUR_KEY>
+
+            - name: AWS_REGION
+              value: eu-north-1
+            - name: AWS_USER_UPLOADS_BUCKET_NAME
+              value: textualyze-user-uploads
+            - name: AWS_USER_FONTS_BUCKET_NAME
+              value: textualyze-user-fonts
+            - name: AWS_ACCESS_KEY_ID
+              value: <YOUR_KEY>
+            - name: AWS_SECRET_ACCESS_KEY
+              value: <YOUR_KEY>
+
+            - name: ANTHROPIC_API_KEY
+              value: <YOUR_KEY>
+
+            - name: SMTP_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: api
+                  key: SMTP_HOST
+            - name: SMTP_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: api
+                  key: SMTP_PORT
+            - name: SMTP_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: api
+                  key: SMTP_USERNAME
+            - name: SMTP_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: api
+                  key: SMTP_PASSWORD
+            - name: SMTP_SENDER
+              valueFrom:
+                secretKeyRef:
+                  name: api
+                  key: SMTP_SENDER
+            - name: SMTP_TLS
+              valueFrom:
+                secretKeyRef:
+                  name: api
+                  key: SMTP_TLS
+
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_HOST
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_PORT
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: POSTGRES_DATABASE
+
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+
+          # If this probe fails, the kubelet kills the container, and the container is subjected to its restart policy. Use liveness probes to check that your application is running but not stuck.
+          livenessProbe:
+            httpGet:
+              path: /ping/liveness
+              port: 3000
+            initialDelaySeconds: 2
+            timeoutSeconds: 2
+            periodSeconds: 10
+            failureThreshold: 3
+
+          # If this probe fails, the Kubernetes service does not send traffic to the pod, but it doesn't kill the container. Use readiness probes to control which pods should receive traffic.
+          readinessProbe:
+            httpGet:
+              path: /ping/readiness
+              port: 3000
+            initialDelaySeconds: 2
+            timeoutSeconds: 2
+            periodSeconds: 10
+            successThreshold: 1
+
+          volumeMounts:
+            - name: shared-incoming-files
+              mountPath: /usr/src/app/src/features/remotion/incoming_files
+            - name: shared-incoming-request-payloads
+              mountPath: /usr/src/app/src/features/remotion/incoming_request_payloads
+      volumes:
+        - name: shared-incoming-files
+          hostPath:
+            path: /mnt/HC_Volume_100043635/incoming_files
+        - name: shared-incoming-request-payloads
+          hostPath:
+            path: /mnt/HC_Volume_100043635/incoming_request_payloads
+      imagePullSecrets:
+        - name: myregistrysecret
+
+      # waiting time after SIGTERM is received and before receiving SIGKILL (this should be longer than the possible longest amount of time transcription could take, etc. 20 min media clip)
+      terminationGracePeriodSeconds: 150
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-service
+spec:
+  selector:
+    app: api
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP

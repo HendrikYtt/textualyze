@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+    <url>
+        <loc>https://textualyze.com/</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
+        <loc>https://textualyze.com/login</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://textualyze.com/signup</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://textualyze.com/pricing</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://textualyze.com/blog</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://textualyze.com/our-team</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://textualyze.com/blog/top-5-subtitle-fonts-for-video-subtitles</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://textualyze.com/blog/can-ai-translate-audio</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://textualyze.com/blog/how-to-add-captions-to-tiktok-videos-in-2024</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://textualyze.com/blog/the-impact-of-subtitles-on-video-engagement</loc>
+        <lastmod>2024-26-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://textualyze.com/blog/how-to-add-color-coded-captions-for-multiple-speakers-in-videos</loc>
+        <lastmod>2024-05-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://textualyze.com/blog/how-to-translate-videos-instantly</loc>
+        <lastmod>2024-05-07</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+</urlset>

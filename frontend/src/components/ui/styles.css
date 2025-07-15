@@ -1,0 +1,141 @@
+.button-box {
+    width: 180px;
+    position: relative;
+    border-radius: 30px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: color 0.3s ease;
+}
+
+#btn {
+    top: 0;
+    position: absolute;
+    width: 95px;
+    height: 100%;
+    background: #F64C71;
+    border-radius: 22px;
+    transition: .5s;
+    box-shadow: 4px 0px 10px 0px rgba(82, 67, 194, 0.23), 1px 0px 7px 0px rgba(0, 0, 0, 0.25);
+}
+
+#special-button.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+#special-button.btn:not(:last-child) {
+    margin-bottom: 3rem;
+}
+
+#special-button.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4)), transparent;
+    animation: shine-special 3s ease-in-out infinite;
+    transform: skewX(-20deg);
+}
+
+#special-button.btn-anim::before {
+    animation: shine-special 3s ease-in-out infinite;
+}
+
+@keyframes shine-special {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+#special-button.btn-alt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 60px;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#special-button.btn-alt:not(:last-child) {
+    margin-bottom: 3rem;
+}
+
+#special-button.btn-alt::before,
+#special-button.btn-alt::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+}
+
+#special-button.btn-alt::before {
+    background: rgba(255, 255, 255, 0.7);
+    width: 80px;
+    left: 0;
+    filter: blur(20px);
+    animation: shine-alt1-special 3s ease-in-out infinite;
+}
+
+#special-button.btn-alt::after {
+    background: rgba(255, 255, 255, 0.3);
+    width: 40px;
+    left: 40px;
+    filter: blur(5px);
+    animation: shine-alt2-special 3s ease-in-out infinite;
+}
+
+@keyframes shine-alt1-special {
+    0% {
+        opacity: 0.5;
+        transform: translateX(-100px) skewX(-15deg);
+        transition-property: opacity, transform;
+    }
+    11.5%,
+    100% {
+        opacity: 0.6;
+        transform: translateX(300px) skewX(-15deg);
+        transition-property: opacity, transform;
+    }
+}
+
+@keyframes shine-alt2-special {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px) skewX(-15deg);
+        transition-property: opacity, transform;
+    }
+    11.5%,
+    100% {
+        opacity: 1;
+        transform: translateX(300px) skewX(-15deg);
+        transition-property: opacity, transform;
+    }
+}

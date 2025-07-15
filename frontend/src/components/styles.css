@@ -1,0 +1,22 @@
+.ant-popover-content {
+    z-index: 1300;
+}
+
+.ant-popover {
+    z-index: 1300;
+}
+
+.tooltip {
+    color: black;
+}
+
+.MuiAutocomplete-option[aria-selected="true"],
+.MuiAutocomplete-option[data-focus="true"] {
+    background-color: rgba(84, 89, 211, 0.32) !important;
+}
+
+.MuiAutocomplete-option:hover {
+    background-color: rgba(42, 50, 238, 0.12) !important;
+}
+
+

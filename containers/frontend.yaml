@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: hendrikutt/frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: config-volume
+              mountPath: /usr/share/nginx/html/config.js
+              subPath: config.js
+      volumes:
+        - name: config-volume
+          configMap:
+            name: frontend-config
+      imagePullSecrets:
+        - name: myregistrysecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  selector:
+    app: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-config
+data:
+  config.js: |
+    window.REACT_APP_API_URL = 'https://textualyze.com/api';
+    window.REACT_APP_API_WS_PATH = '/api/socket.io';
+    window.REACT_APP_WS_TRANSPORTS = 'websocket';
+    window.REACT_APP_FRONTEND_URL = 'https://textualyze.com';
+    window.REACT_PUBLIC_FACEBOOK_PIXEL_ID = '7929960480391397';
