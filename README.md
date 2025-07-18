@@ -2,7 +2,7 @@
 
 **Textulayze** revolutionized video accessibility by providing an automated subtitling platform that served **1,600+ users globally**. This complete full-stack solution, combined cutting-edge AI technology with intuitive design to deliver professional-grade subtitle generation and styling capabilities.
 
-### 🏆 Notable Achievements
+## 🏆 Notable Achievements
 
 - **Global Reach**: Served creators across multiple continents
 - **Enterprise Clients**: Trusted by industry leaders including **MyFitness** (Estonia's premier gym franchise)
@@ -12,19 +12,19 @@
 
 ---
 
-## 🚀 Key Features
+## 💡 Key Features
 
-- **🤖 Automated Transcription**: AI-powered speech-to-text conversion
-- **🎨 Custom Styling**: Full control over subtitle appearance and branding
-- **⚡ Real-time Processing**: Fast turnaround for time-sensitive content
-- **🌍 Multi-language Support**: Catering to diverse global audiences
-- **📱 Cross-platform**: Seamless experience across devices
+- **Automated Transcription**: AI-powered speech-to-text conversion
+- **Custom Styling**: Full control over subtitle appearance and branding
+- **Real-time Processing**: Fast turnaround for time-sensitive content
+- **Multi-language Support**: Catering to diverse global audiences
+- **Cross-platform**: Seamless experience across devices
 
 ---
 
-## 🛠️ Technical Achievement
+## 🛠️ Technical Details
 
-**Solo Development**: This entire platform was conceived, designed, and implemented by **me** as a **single-developer project**. The technical scope included:
+This entire platform was conceived, designed, and implemented by **me** as a **single-developer project**. The technical scope included:
 
 - **Full-Stack Architecture**: Frontend, UI/UX design, backend, database design, and deployment
 - **AI Integration**: Speech recognition and natural language processing
@@ -35,7 +35,7 @@
 
 ## 📚 Development Notes
 
-*The following documentation contains comprehensive development notes from the project lifecycle, including components and services that may no longer be active (Kafka, Debezium, Python services).*
+The following documentation contains comprehensive development notes from the project lifecycle, including components and services that may no longer be active (Kafka, Debezium, Python services).
 
 # 1. @hendrikytt:
 (in UI directory)
